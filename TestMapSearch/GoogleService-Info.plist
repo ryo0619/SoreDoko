@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3490694886172723/8620687298</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>352456096750-si2u0e3shikts60mjl0m5jvog5v20kps.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.352456096750-si2u0e3shikts60mjl0m5jvog5v20kps</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDAyQOn63xHkGD60MUYxCVz5gCrKIbzAfw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>352456096750</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.TestMapSearch</string>
+	<key>PROJECT_ID</key>
+	<string>soredoko</string>
+	<key>STORAGE_BUCKET</key>
+	<string>soredoko.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:352456096750:ios:9184570e4b89c9c9</string>
+	<key>DATABASE_URL</key>
+	<string>https://soredoko.firebaseio.com</string>
+</dict>
+</plist>

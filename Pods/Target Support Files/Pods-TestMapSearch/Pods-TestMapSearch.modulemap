@@ -1,0 +1,6 @@
+framework module Pods_TestMapSearch {
+  umbrella header "Pods-TestMapSearch-umbrella.h"
+
+  export *
+  module * { export * }
+}
