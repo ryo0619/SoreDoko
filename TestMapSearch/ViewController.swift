@@ -149,6 +149,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         //背景色
         searchButton.backgroundColor = UIColor.orange
         
+        searchButton.layer.shadowColor = UIColor.black.cgColor
+        searchButton.layer.shadowOpacity = 0.5
+        searchButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        
         //角丸
         searchButton.layer.cornerRadius = 7
         
