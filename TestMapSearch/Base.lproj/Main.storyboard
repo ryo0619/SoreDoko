@@ -34,34 +34,6 @@
                             </visualEffectView>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjU-xb-ePK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SoreDoko?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-eS-UPo">
-                                        <rect key="frame" x="37.5" y="80" width="300" height="26"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="26" id="Pf5-4H-0gu"/>
-                                            <constraint firstAttribute="width" constant="300" id="u4E-hG-TJD"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="検索する場所/住所を入力してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6i-o2-XAm">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="Ca0-Nf-Whp"/>
-                                            <constraint firstAttribute="height" constant="25" id="bf4-dW-EY0"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="wQX-eS-UPo" firstAttribute="centerX" secondItem="gjU-xb-ePK" secondAttribute="centerX" id="SHx-te-yMX"/>
-                                    <constraint firstItem="wQX-eS-UPo" firstAttribute="top" secondItem="gjU-xb-ePK" secondAttribute="top" constant="80" id="WPm-x6-Ari"/>
-                                    <constraint firstItem="M6i-o2-XAm" firstAttribute="centerX" secondItem="gjU-xb-ePK" secondAttribute="centerX" id="ee4-8O-jhc"/>
-                                    <constraint firstItem="M6i-o2-XAm" firstAttribute="top" secondItem="wQX-eS-UPo" secondAttribute="bottom" constant="10" id="fW0-hb-Pqe"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

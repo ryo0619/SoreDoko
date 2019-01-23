@@ -20,6 +20,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     //private var pinImageViewRed: UIImageView!
     
+    let titleLabel = UILabel()
+    
+    
     let address1: UITextField = UITextField(frame: CGRect(x: 0,y: 0,width: 280,height: 45))
     let address2: UITextField = UITextField(frame: CGRect(x: 0,y: 0,width: 280,height: 45))
     let address3: UITextField = UITextField(frame: CGRect(x: 0,y: 0,width: 280,height: 45))
@@ -69,7 +72,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         sc.delegate = self
         
         //ScrollViewの位置を指定する
-        sc.contentSize = CGSize(width: 250,height: 800)
+        sc.contentSize = CGSize(width: self.view.frame.width,height: self.view.frame.height)
         self.view.addSubview(sc)
         
         // 表示する文字を代入する.
@@ -107,6 +110,33 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         address4.borderStyle = UITextField.BorderStyle.roundedRect
         address5.borderStyle = UITextField.BorderStyle.roundedRect
         
+        /*
+         profitInput.layer.shadowOpacity = 0.5
+         profitInput.layer.shadowColor = UIColor.black.cgColor
+         profitInput.layer.shadowOffset = CGSize(width: 5, height: 5)
+         
+ */
+        address1.layer.shadowOpacity = 0.5
+        address1.layer.shadowColor = UIColor.black.cgColor
+        address1.layer.shadowOffset = CGSize(width: 5, height: 5)
+
+        address2.layer.shadowOpacity = 0.5
+        address2.layer.shadowColor = UIColor.black.cgColor
+        address2.layer.shadowOffset = CGSize(width: 5, height: 5)
+
+        address3.layer.shadowOpacity = 0.5
+        address3.layer.shadowColor = UIColor.black.cgColor
+        address3.layer.shadowOffset = CGSize(width: 5, height: 5)
+
+        address4.layer.shadowOpacity = 0.5
+        address4.layer.shadowColor = UIColor.black.cgColor
+        address4.layer.shadowOffset = CGSize(width: 5, height: 5)
+        
+        address5.layer.shadowOpacity = 0.5
+        address5.layer.shadowColor = UIColor.black.cgColor
+        address5.layer.shadowOffset = CGSize(width: 5, height: 5)
+
+        
         //表示されるテキスト
         searchButton.setTitle("Search", for: .normal)
         
@@ -134,12 +164,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let addressXPosition:CGFloat = CGFloat(Int(self.view.bounds.width/2))
         let pinXPosition:CGFloat = CGFloat(19)
         
+        titleLabel.frame = CGRect(x: addressXPosition - 100,
+                                  y: 50,
+                                  width: 200,
+                                  height: 80)
+        titleLabel.backgroundColor = .clear
+        titleLabel.text = "SoreDoko?"
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont(name: "Futura-Medium", size: 24)
+        self.view.addSubview(titleLabel)
+        sc.addSubview(titleLabel)
+        
         //配置場所
-        address1.layer.position = CGPoint(x:addressXPosition,y:180)
-        address2.layer.position = CGPoint(x:addressXPosition,y:(addressPosition*(1/5))+180)
-        address3.layer.position = CGPoint(x:addressXPosition,y:(addressPosition*(2/5))+180)
-        address4.layer.position = CGPoint(x:addressXPosition,y:(addressPosition*(3/5))+180)
-        address5.layer.position = CGPoint(x:addressXPosition,y:(addressPosition*(4/5))+180)
+        address1.layer.position = CGPoint(x:addressXPosition,y:160)
+        address2.layer.position = CGPoint(x:addressXPosition,y:(addressPosition*(1/5))+160)
+        address3.layer.position = CGPoint(x:addressXPosition,y:(addressPosition*(2/5))+160)
+        address4.layer.position = CGPoint(x:addressXPosition,y:(addressPosition*(3/5))+160)
+        address5.layer.position = CGPoint(x:addressXPosition,y:(addressPosition*(4/5))+160)
         searchButton.layer.position = CGPoint(x:self.view.bounds.width/2, y:self.view.bounds.height-(admobView.frame.height+searchButton.frame.height+10))
         admobView.frame.origin = CGPoint(x:(self.view.bounds.width-admobView.frame.width)/2, y:self.view.bounds.height-admobView.frame.height)
         admobView.frame.size = CGSize(width:admobView.frame.width, height:admobView.frame.height)
