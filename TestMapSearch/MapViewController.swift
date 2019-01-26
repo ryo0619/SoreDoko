@@ -23,6 +23,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var inputAddressCounter = Int()
     var searchButton = UIButton()
+    
+    let imageHere = UIImage(named: "here")!
+    let imageRoute = UIImage(named: "route")!
 
     //let request = MKDirections.Request()
     
@@ -33,11 +36,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.delegate = self
         textInput()
         //tableViewに戻るボタン
-        searchButton.frame = CGRect(x: self.view.frame.width / 2 - 40, y: 100, width: 80, height: 30)
-        searchButton.setTitle("経路検索", for: UIControl.State())
-        searchButton.setTitleColor(.white, for: UIControl.State())
-        searchButton.backgroundColor = .red
-        searchButton.layer.cornerRadius = 0.0
+        searchButton.frame = CGRect(x: self.view.frame.width - 70, y: self.view.frame.height - 70, width: 50, height: 50)
+        searchButton.setImage(imageRoute, for: .normal)
+        searchButton.layer.shadowOpacity = 0.5
+        searchButton.layer.shadowColor = UIColor.black.cgColor
+        searchButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        //searchButton.setTitle("経路検索", for: UIControl.State())
+        //searchButton.setTitleColor(.white, for: UIControl.State())
+        //searchButton.backgroundColor = .red
+        //searchButton.layer.cornerRadius = 0.0
         searchButton.addTarget(self, action: #selector(self.getRoutes(sender:)), for: .touchUpInside)
         searchButton.showsTouchWhenHighlighted = true
         self.view.addSubview(searchButton)

@@ -32,6 +32,8 @@
 		2AD597A61EDC72130045ADBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD597A41EDC72130045ADBA /* LaunchScreen.storyboard */; };
 		2AEAF95C21F60B0D007E3469 /* MyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEAF95B21F60B0D007E3469 /* MyScrollView.swift */; };
 		2AEAF95D21F74835007E3469 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC021021F1255C300BD19D5 /* GoogleMobileAds.framework */; };
+		2AEAF96321FC5F5A007E3469 /* here.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AEAF96221FC5F5A007E3469 /* here.png */; };
+		2AEAF96521FC5F61007E3469 /* route.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AEAF96421FC5F61007E3469 /* route.png */; };
 		B316F5869290204F0120715B /* Pods_TestMapSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DBF6E41F0DA1FF8FE96D57 /* Pods_TestMapSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		2AD597A51EDC72130045ADBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AD597A71EDC72130045ADBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AEAF95B21F60B0D007E3469 /* MyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollView.swift; sourceTree = "<group>"; };
+		2AEAF96221FC5F5A007E3469 /* here.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = here.png; sourceTree = "<group>"; };
+		2AEAF96421FC5F61007E3469 /* route.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = route.png; sourceTree = "<group>"; };
 		4E934B594D45038402848E32 /* Pods-TestMapSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMapSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestMapSearch/Pods-TestMapSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		A9DBF6E41F0DA1FF8FE96D57 /* Pods_TestMapSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestMapSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3497D1BC7DA1EDEA301E779 /* Pods-TestMapSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMapSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestMapSearch/Pods-TestMapSearch.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				2AEAF95B21F60B0D007E3469 /* MyScrollView.swift */,
 				2A1BC61B1F433A8A001AEF44 /* SpeMKPointAnnotation.swift */,
 				2AD5979F1EDC72130045ADBA /* Main.storyboard */,
+				2AEAF96421FC5F61007E3469 /* route.png */,
+				2AEAF96221FC5F5A007E3469 /* here.png */,
 				2A0504B51EECEF1600E3B778 /* 10.png */,
 				2AD597A21EDC72130045ADBA /* Assets.xcassets */,
 				2AD597A41EDC72130045ADBA /* LaunchScreen.storyboard */,
@@ -234,8 +240,10 @@
 				2AD597A61EDC72130045ADBA /* LaunchScreen.storyboard in Resources */,
 				2A2DE7441EF2DD73001C646C /* Images.xcassets in Resources */,
 				2AD597A31EDC72130045ADBA /* Assets.xcassets in Resources */,
+				2AEAF96521FC5F61007E3469 /* route.png in Resources */,
 				2A0504B61EECEF1600E3B778 /* 10.png in Resources */,
 				2AD597A11EDC72130045ADBA /* Main.storyboard in Resources */,
+				2AEAF96321FC5F5A007E3469 /* here.png in Resources */,
 				2A0F4CC31F11DDB000FCF3EA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
