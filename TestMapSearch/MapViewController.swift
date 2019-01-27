@@ -12,7 +12,7 @@ import GoogleMobileAds
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    var myLocationManager: CLLocationManager!
+    var myLocationManager = CLLocationManager()
 
     var mapAddresses: [String?] = []
     var locationsX:[CLLocation] = []
@@ -35,6 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
+        self.myLocationManager.delegate = self
         textInput()
         //tableViewに戻るボタン
         searchButton.frame = CGRect(x: self.view.frame.width - 70, y: self.view.frame.height - 70, width: 50, height: 50)
@@ -60,6 +61,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.view.addSubview(showHereButton)
         
         print("確認　\(mapAddresses)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // locationsに現在地が入っています
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -100,10 +105,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @objc func showMyPoint(sender: AnyObject){
-        self.myLocationManager.delegate = self
-        
+
+        print("現在地表示開始")
+    
         //位置情報サービスの確認
         CLLocationManager.locationServicesEnabled()
+        
         
         // セキュリティ認証のステータス
         let status = CLLocationManager.authorizationStatus()
@@ -126,6 +133,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         else{
             print("not allowed")
         }
+        
+        // 位置情報の更新
+        self.myLocationManager.startUpdatingLocation()
+ 
         
         self.myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.myLocationManager.distanceFilter = kCLDistanceFilterNone
