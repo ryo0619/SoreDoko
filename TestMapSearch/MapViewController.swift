@@ -23,6 +23,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var inputAddressCounter = Int()
     var searchButton = UIButton()
+    var showHereButton = UIButton()
     
     let imageHere = UIImage(named: "here")!
     let imageRoute = UIImage(named: "route")!
@@ -48,6 +49,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         searchButton.addTarget(self, action: #selector(self.getRoutes(sender:)), for: .touchUpInside)
         searchButton.showsTouchWhenHighlighted = true
         self.view.addSubview(searchButton)
+        
+        showHereButton.frame = CGRect(x: self.view.frame.width - 70, y: self.view.frame.height - 130, width: 50, height: 50)
+        showHereButton.setImage(imageHere, for: .normal)
+        showHereButton.layer.shadowOpacity = 0.5
+        showHereButton.layer.shadowColor = UIColor.black.cgColor
+        showHereButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        showHereButton.addTarget(self, action: #selector(self.showMyPoint(sender:)), for: .touchUpInside)
+        showHereButton.showsTouchWhenHighlighted = true
+        self.view.addSubview(showHereButton)
+        
         print("確認　\(mapAddresses)")
     }
     
@@ -86,6 +97,41 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 })
             }
         }
+    }
+    
+    @objc func showMyPoint(sender: AnyObject){
+        self.myLocationManager.delegate = self
+        
+        //位置情報サービスの確認
+        CLLocationManager.locationServicesEnabled()
+        
+        // セキュリティ認証のステータス
+        let status = CLLocationManager.authorizationStatus()
+        
+        if(status == CLAuthorizationStatus.notDetermined) {
+            print("NotDetermined")
+            // 許可をリクエスト
+            self.myLocationManager.requestWhenInUseAuthorization()
+            
+        }
+        else if(status == CLAuthorizationStatus.restricted){
+            print("Restricted")
+        }
+        else if(status == CLAuthorizationStatus.authorizedWhenInUse){
+            print("authorizedWhenInUse")
+        }
+        else if(status == CLAuthorizationStatus.authorizedAlways){
+            print("authorizedAlways")
+        }
+        else{
+            print("not allowed")
+        }
+        
+        self.myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.myLocationManager.distanceFilter = kCLDistanceFilterNone
+        self.myLocationManager.requestWhenInUseAuthorization()
+        self.mapView.showsUserLocation = true
+        self.mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     @objc func getRoutes(sender: AnyObject) {
