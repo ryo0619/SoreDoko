@@ -27,8 +27,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let imageHere = UIImage(named: "here")!
     let imageRoute = UIImage(named: "route")!
-
-    //let request = MKDirections.Request()
     
     @IBOutlet var mapView: MKMapView!
     
@@ -43,10 +41,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         searchButton.layer.shadowOpacity = 0.5
         searchButton.layer.shadowColor = UIColor.black.cgColor
         searchButton.layer.shadowOffset = CGSize(width: 5, height: 5)
-        //searchButton.setTitle("経路検索", for: UIControl.State())
-        //searchButton.setTitleColor(.white, for: UIControl.State())
-        //searchButton.backgroundColor = .red
-        //searchButton.layer.cornerRadius = 0.0
         searchButton.addTarget(self, action: #selector(self.getRoutes(sender:)), for: .touchUpInside)
         searchButton.showsTouchWhenHighlighted = true
         self.view.addSubview(searchButton)
@@ -84,7 +78,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     if(error == nil) {
                         for placemark in placemarks! {
                             let location:CLLocation = placemark.location!
-                            
+                            //１個めの検索結果だけ実行する処理（画面の中央に表示）
                             if i == 0 {
                                 let center = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
                                 let span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
@@ -105,21 +99,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @objc func showMyPoint(sender: AnyObject){
-
         print("現在地表示開始")
     
         //位置情報サービスの確認
         CLLocationManager.locationServicesEnabled()
         
-        
         // セキュリティ認証のステータス
         let status = CLLocationManager.authorizationStatus()
-        
         if(status == CLAuthorizationStatus.notDetermined) {
             print("NotDetermined")
             // 許可をリクエスト
             self.myLocationManager.requestWhenInUseAuthorization()
-            
         }
         else if(status == CLAuthorizationStatus.restricted){
             print("Restricted")
@@ -137,10 +127,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // 位置情報の更新
         self.myLocationManager.startUpdatingLocation()
  
-        
         self.myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.myLocationManager.distanceFilter = kCLDistanceFilterNone
         self.myLocationManager.requestWhenInUseAuthorization()
+        //現在地もアノテーションビューを返すメソッドを通るようなので、
+        //そちらのメソッド内でnilを返して回避している
         self.mapView.showsUserLocation = true
         self.mapView.setUserTrackingMode(.follow, animated: true)
     }
@@ -176,12 +167,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.blue
         renderer.lineWidth = 4.0
-        print(self.locationsX)
+        //print(self.locationsX)
         return renderer
     }
     
     //アノテーションビューを返すメソッド
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            print("これは現在地")
+            return nil
+        }
         //アノテーションビューを生成する。
         let SoreDokoPinView = MKPinAnnotationView()
         //アノテーションビューに座標、タイトル、サブタイトルを設定する。
