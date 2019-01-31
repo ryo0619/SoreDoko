@@ -139,8 +139,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @objc func getRoutes(sender: AnyObject) {
         
-        self.mapView.removeOverlay(mapView?.overlays as! MKOverlay)
-        
         for i in 0..<self.inputAddressCounter - 1  {
             if mapAddresses[i] == "" {
                 continue
