@@ -25,7 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var searchButton = UIButton()
     var showHereButton = UIButton()
     
-    let imageHere = UIImage(named: "here")!
+    let imageHere = UIImage(named: "me")!
     let imageRoute = UIImage(named: "route")!
     
     @IBOutlet var mapView: MKMapView!
@@ -66,6 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func textInput() {
+        
         self.inputAddressCounter = self.mapAddresses.count
         for i in 0 ..< self.inputAddressCounter {
             if (mapAddresses[i] == nil) || (mapAddresses[i] == "") {
@@ -137,6 +138,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @objc func getRoutes(sender: AnyObject) {
+        
+        self.mapView.removeOverlay(mapView?.overlays as! MKOverlay)
+        
         for i in 0..<self.inputAddressCounter - 1  {
             if mapAddresses[i] == "" {
                 continue
